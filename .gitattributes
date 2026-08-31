@@ -1,0 +1,8 @@
+# Shell scripts must keep LF endings even when checked out on Windows -
+# a CRLF shebang line breaks bash on macOS/Linux ("bad interpreter").
+*.command text eol=lf
+*.sh text eol=lf
+
+# Windows scripts keep CRLF for conventional Notepad/cmd.exe compatibility.
+*.bat text eol=crlf
+*.ps1 text eol=crlf
