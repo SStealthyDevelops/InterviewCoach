@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# local analytics database (per-machine habit data, never shared)
+/data/
+
 # production
 /build
 

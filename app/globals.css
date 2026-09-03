@@ -3,6 +3,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Analytics chart tokens. Categorical slots keep a fixed identity->color
+     mapping (see lib/analytics/colors.ts); good/warn/bad mirror the
+     emerald/amber/red bands already used across the scorecard UI. */
+  --chart-surface: #ffffff;
+  --chart-grid: #e4e4e7;
+  --chart-axis: #d4d4d8;
+  --chart-muted: #71717a;
+  --chart-series-1: #2a78d6;
+  --chart-series-2: #eb6834;
+  --chart-series-3: #1baf7a;
+  --chart-series-4: #eda100;
+  --chart-series-5: #e87ba4;
+  --chart-good: #059669;
+  --chart-warn: #d97706;
+  --chart-bad: #dc2626;
 }
 
 @theme inline {
@@ -16,6 +32,19 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    --chart-surface: #09090b;
+    --chart-grid: #27272a;
+    --chart-axis: #3f3f46;
+    --chart-muted: #a1a1aa;
+    --chart-series-1: #3987e5;
+    --chart-series-2: #d95926;
+    --chart-series-3: #199e70;
+    --chart-series-4: #c98500;
+    --chart-series-5: #d55181;
+    --chart-good: #34d399;
+    --chart-warn: #fbbf24;
+    --chart-bad: #f87171;
   }
 }
 

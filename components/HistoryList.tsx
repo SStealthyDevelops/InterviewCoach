@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { listSessions, deleteSession } from "@/lib/storage/db";
+import { deleteSessionAnalytics } from "@/lib/analytics/client";
 import type { Session } from "@/lib/types";
 
 const BAND_STYLES: Record<Session["scorecard"]["overallBand"], string> = {
@@ -20,6 +21,7 @@ export function HistoryList() {
 
   async function handleDelete(id: string) {
     await deleteSession(id);
+    void deleteSessionAnalytics(id);
     setSessions((prev) => prev?.filter((s) => s.id !== id) ?? null);
   }
 
