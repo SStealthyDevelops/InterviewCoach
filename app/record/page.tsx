@@ -14,6 +14,7 @@ import { calculatePace } from "@/lib/analysis/paceCalculator";
 import { scanVocabulary } from "@/lib/analysis/vocabularyWordList";
 import { composeScorecard } from "@/lib/feedback/composeScorecard";
 import { saveSession } from "@/lib/storage/db";
+import { recordSessionAnalytics } from "@/lib/analytics/client";
 import type { Session } from "@/lib/types";
 
 const STEP_LABELS = [
@@ -117,6 +118,7 @@ function RecordPageContent() {
         scorecard,
       };
       await saveSession(session);
+      void recordSessionAnalytics(session);
       setStepStatus(4, "done");
 
       router.push(`/report?id=${session.id}`);

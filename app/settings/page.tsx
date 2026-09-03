@@ -12,6 +12,7 @@ import {
   subscribeStoredApiKey,
 } from "@/lib/storage/settings";
 import { deleteAllSessions } from "@/lib/storage/db";
+import { deleteAllAnalytics } from "@/lib/analytics/client";
 
 function getServerSnapshotFalse() {
   return false;
@@ -54,6 +55,7 @@ export default function SettingsPage() {
 
   async function handleDeleteAll() {
     await deleteAllSessions();
+    await deleteAllAnalytics();
     clearAllSettings();
     setDeleted(true);
   }
@@ -121,7 +123,8 @@ export default function SettingsPage() {
         </h2>
         <p className="text-sm text-zinc-600 dark:text-zinc-400">
           Permanently deletes your API key and every saved practice session (videos,
-          transcripts, and scores) from this browser. This cannot be undone.
+          transcripts, and scores) from this browser, plus your long-term analytics
+          history from the local database. This cannot be undone.
         </p>
         {deleted ? (
           <p className="text-sm text-emerald-600 dark:text-emerald-400">
